@@ -11,6 +11,7 @@ import { sortNumbersAscending, sumNumbers } from "../../../utils/helperFunctions
 const useStyles = makeStyles(() => ({
     dayContainer: {
         marginTop: 50,
+        marginBottom: 200,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

@@ -2,13 +2,14 @@ import { makeStyles } from "@mui/styles"
 
 import { useLocalInputFile } from "../../Atoms/LocalInputFile"
 import { Background, Header } from "../../Molecules"
-import { black, deepSaffron, white } from "../../../utils/CustomTheme"
+import { deepSaffron, white } from "../../../utils/CustomTheme"
 import { CircularProgress } from "@mui/material"
 
 
 const useStyles = makeStyles(() => ({
     dayContainer: {
         marginTop: 50,
+        marginBottom: 200,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -18,20 +19,6 @@ const useStyles = makeStyles(() => ({
     externalLink: {
         color: deepSaffron
     },
-    parsedStateContainer: {
-        display: 'flex',
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        flexWrap: 'wrap',
-        rowGap: 5,
-        columnGap: 5,
-        width: 400,
-        borderColor: deepSaffron,
-        borderWidth: 1,
-        borderStyle: 'solid',
-        padding: 20,
-        backgroundColor: black,
-    }
 }))
 
 const Day = () => {
