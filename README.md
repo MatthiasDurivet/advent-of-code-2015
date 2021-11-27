@@ -1,4 +1,4 @@
-# Advent of code 2021
+# Advent of code 2015
 
 The goal of this repo is to have fun writing code.
 

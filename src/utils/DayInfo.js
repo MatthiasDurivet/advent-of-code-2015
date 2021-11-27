@@ -1,7 +1,6 @@
 const infoPerDay = {
-    0: { title: "Abstract Day component", description: "Abstract component to start from." },
-    1: { title: "Unknown", description: "Coming soon" },
-    2: { title: "Unknown", description: "Coming soon" },
+    1: { title: "Not Quite Lisp", description: "Santa is trying to deliver presents in a large apartment building, but he can't find the right floor - the directions he got are a little confusing. He starts on the ground floor (floor 0) and then follows the instructions one character at a time." },
+    2: { title: "I Was Told There Would Be No Math", description: "The elves are running low on wrapping paper, and so they need to submit an order for more. They have a list of the dimensions (length l, width w, and height h) of each present, and only want to order exactly as much as they need." },
     3: { title: "Unknown", description: "Coming soon" },
     4: { title: "Unknown", description: "Coming soon" },
     5: { title: "Unknown", description: "Coming soon" },

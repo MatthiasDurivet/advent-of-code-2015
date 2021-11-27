@@ -1,9 +1,9 @@
 import { makeStyles } from "@mui/styles"
 
-import { useFileUpload } from "../../Atoms/FileUploadZone"
-import { FileUploadZone } from "../../Atoms"
+import { useLocalInputFile } from "../../Atoms/LocalInputFile"
 import { Background, Header } from "../../Molecules"
-import { deepSaffron, white } from "../../../utils/CustomTheme"
+import { black, deepSaffron, white } from "../../../utils/CustomTheme"
+import { CircularProgress } from "@mui/material"
 
 
 const useStyles = makeStyles(() => ({
@@ -17,33 +17,36 @@ const useStyles = makeStyles(() => ({
     },
     externalLink: {
         color: deepSaffron
+    },
+    parsedStateContainer: {
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        flexWrap: 'wrap',
+        rowGap: 5,
+        columnGap: 5,
+        width: 400,
+        borderColor: deepSaffron,
+        borderWidth: 1,
+        borderStyle: 'solid',
+        padding: 20,
+        backgroundColor: black,
     }
 }))
 
 const Day = () => {
     const classes = useStyles()
-    const [fileText, uploadedFile, setUploadedFile] = useFileUpload()
+    const [fileText, linkToInputFile] = useLocalInputFile(2)
 
-    const split = (fileText || '').split('\n')
-    const massValues = split.map(value => parseInt(value))
-    const fuelRequirements = massValues
-        .map(value => value / 3)
-        .map(value => Math.floor(value))
-        .map(value => value - 2)
-    const sum = fuelRequirements.reduce((a, b) => a + b, 0)
-
+    if (!fileText) return <CircularProgress color="primary" />
 
     return <div>
         <Header />
         <Background />
         <div className={classes.dayContainer}>
-            <FileUploadZone uploadedFile={uploadedFile} setUploadedFile={setUploadedFile} />
-            <a href='https://adventofcode.com/2019/day/1' className={classes.externalLink}>https://adventofcode.com/2019/day/1</a>
-            <p>{fileText}</p>
-            <p>{split}</p>
-            <p>{massValues}</p>
-            <p>{fuelRequirements}</p>
-            <p>{sum}</p>
+            <a className={classes.externalLink} href={linkToInputFile} target='_blank' rel='noreferrer'>{linkToInputFile}</a>
+
+
         </div>
     </div >
 }

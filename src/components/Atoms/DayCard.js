@@ -38,7 +38,7 @@ const DayCard = ({ dayNumber }) => {
     return <Link to={`/day-${dayNumber}`}>
         <div className={classes.calendarItem}>
             <p className={classes.title}>
-                #{dayNumber} {dayInfo.title}
+                Day {dayNumber}: {dayInfo.title}
             </p>
             <p className={classes.description}>
                 {dayInfo.description}
