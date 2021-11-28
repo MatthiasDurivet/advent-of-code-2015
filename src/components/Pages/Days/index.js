@@ -2,13 +2,13 @@ import Day0 from './Day0'
 import Day1 from './Day1'
 import Day2 from './Day2'
 import Day3 from './Day3'
-// import Day4 from './Day4'
-// import Day5 from './Day5'
-// import Day6 from './Day6'
-// import Day7 from './Day7'
-// import Day8 from './Day8'
-// import Day9 from './Day9'
-// import Day10 from './Day10'
+import Day4 from './Day4'
+import Day5 from './Day5'
+import Day6 from './Day6'
+import Day7 from './Day7'
+import Day8 from './Day8'
+import Day9 from './Day9'
+import Day10 from './Day10'
 // import Day11 from './Day11'
 // import Day12 from './Day12'
 // import Day13 from './Day13'
@@ -30,5 +30,17 @@ import Day3 from './Day3'
 // import Day29 from './Day29'
 // import Day30 from './Day30'
 // import Day31 from './Day31'
-const Days = [Day0, Day1, Day2, Day3]
+const Days = [
+    Day0,
+    Day1,
+    Day2,
+    Day3,
+    Day4,
+    Day5,
+    Day6,
+    Day7,
+    Day8,
+    Day9,
+    Day10,
+]
 export default Days

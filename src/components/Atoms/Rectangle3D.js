@@ -2,7 +2,6 @@ import { makeStyles } from "@mui/styles"
 import { Box } from "@mui/system"
 
 import { black, white } from "../../utils/CustomTheme"
-import { sortNumbersAscending } from "../../utils/helperFunctions"
 
 const useStyles = makeStyles(() => ({
     rectangleFace: {
@@ -18,14 +17,16 @@ const useStyles = makeStyles(() => ({
     },
 }))
 
-const RotatingRectangle = ({ height = 1, width = 1, length = 1, textPerFace = ['FRONT', 'RIGHT', 'BACK', 'LEFT', 'TOP', 'BOTTOM'], scale = 10 }) => {
+const RotatingRectangle = ({ height = 1, width = 1, length = 1, textPerFace = ['', '', '', '', '', ''], scale = 10 }) => {
     const classes = useStyles()
 
     return <Box sx={{
+        position: 'relative',
+        top: 0,
+        left: 0,
         height: height * scale,
         width: width * scale,
         transformStyle: 'preserve-3d',
-        margin: [height, width, length].sort(sortNumbersAscending)[0] * scale / 2 + 'px',
     }}>
         <Box sx={{
             transform: 'rotateX(-20deg) rotateY(-35deg)',

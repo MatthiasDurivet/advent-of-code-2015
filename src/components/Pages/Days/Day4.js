@@ -1,9 +1,11 @@
 import { makeStyles } from "@mui/styles"
+import MD5 from "crypto-js/md5"
 
 import { useLocalInputFile } from "../../Atoms/LocalInputFile"
 import { Background, Header } from "../../Molecules"
 import { deepSaffron, white } from "../../../utils/CustomTheme"
 import { CircularProgress } from "@mui/material"
+
 
 
 const useStyles = makeStyles(() => ({
@@ -23,11 +25,18 @@ const useStyles = makeStyles(() => ({
 
 const Day = () => {
     const classes = useStyles()
-    const [fileText, linkToInputFile] = useLocalInputFile(0)
+    const [fileText, linkToInputFile] = useLocalInputFile(4)
 
     if (!fileText) return <CircularProgress color="primary" />
 
-    console.log('fileText: ', fileText)
+    let result
+    let i = -1
+    while ((!result || result.substring(0, 6) !== '000000') && i < 10000000) {
+        i += 1
+        result = MD5(fileText + i).toString()
+    }
+    console.log('i: ', i)
+    console.log('result: ', result)
 
     return <div>
         <Header />

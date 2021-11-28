@@ -6,6 +6,7 @@ import { useLocalInputFile } from "../../Atoms/LocalInputFile"
 import { Background, Header } from "../../Molecules"
 import { black, deepSaffron, white } from "../../../utils/CustomTheme"
 import { sortNumbersAscending, sumNumbers } from "../../../utils/helperFunctions"
+import GiftRibbons from "../../Atoms/GiftRibbons"
 
 
 const useStyles = makeStyles(() => ({
@@ -40,9 +41,10 @@ const useStyles = makeStyles(() => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        rowGap: 10,
-        columnGap: 100,
-        flexWrap: 'wrap'
+        rowGap: 50,
+        columnGap: 150,
+        flexWrap: 'wrap',
+        marginTop: 100,
     }
 }))
 
@@ -89,10 +91,11 @@ const Day = () => {
             <a className={classes.externalLink} href={linkToInputFile} target='_blank' rel='noreferrer'>{linkToInputFile}</a>
             <div className={classes.flexGrid}>
                 {presents.slice(0, 50).map(([h, w, l]) => {
-                    const text = ['', '', '', '', '', '']
-                    console.log('text: ', text)
                     return <ContinuousRotation variant='hover'>
-                        <Rectangle3D height={h} width={w} length={l} textPerFace={text} />
+                        <div style={{ position: 'relative', transformStyle: 'preserve-3d' }}>
+                            <Rectangle3D height={h} width={w} length={l} />
+                            <GiftRibbons height={h} width={w} length={l} />
+                        </div>
                     </ContinuousRotation>
                 })}
             </div>

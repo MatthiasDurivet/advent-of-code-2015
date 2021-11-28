@@ -3,7 +3,7 @@ import { keyframes } from '@emotion/react'
 
 const spin = keyframes({
     from: { transform: 'rotateX(0deg) rotateY(0deg)' },
-    to: { transform: 'rotateX(360deg) rotateY(720deg)' }
+    to: { transform: 'rotateX(0deg) rotateY(720deg)' }
 })
 
 const ContinuousRotation = ({ children, perspective = 1000, margin = 0, variant = 'hover' }) => {
