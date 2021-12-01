@@ -9,10 +9,10 @@ import Day7 from './Day7'
 import Day8 from './Day8'
 import Day9 from './Day9'
 import Day10 from './Day10'
-// import Day11 from './Day11'
-// import Day12 from './Day12'
-// import Day13 from './Day13'
-// import Day14 from './Day14'
+import Day11 from './Day11'
+import Day12 from './Day12'
+import Day13 from './Day13'
+import Day14 from './Day14'
 // import Day15 from './Day15'
 // import Day16 from './Day16'
 // import Day17 from './Day17'
@@ -24,12 +24,6 @@ import Day10 from './Day10'
 // import Day23 from './Day23'
 // import Day24 from './Day24'
 // import Day25 from './Day25'
-// import Day26 from './Day26'
-// import Day27 from './Day27'
-// import Day28 from './Day28'
-// import Day29 from './Day29'
-// import Day30 from './Day30'
-// import Day31 from './Day31'
 const Days = [
     Day0,
     Day1,
@@ -42,5 +36,20 @@ const Days = [
     Day8,
     Day9,
     Day10,
+    Day11,
+    Day12,
+    Day13,
+    Day14,
+    // Day15,
+    // Day16,
+    // Day17,
+    // Day18,
+    // Day19,
+    // Day20,
+    // Day21,
+    // Day22,
+    // Day23,
+    // Day24,
+    // Day25,
 ]
 export default Days

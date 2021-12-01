@@ -4,6 +4,7 @@ import { useLocalInputFile } from "../../Atoms/LocalInputFile"
 import { Background, Header } from "../../Molecules"
 import { deepSaffron, white } from "../../../utils/CustomTheme"
 import { CircularProgress } from "@mui/material"
+import { sumNumbers } from "../../../utils/helperFunctions"
 
 
 const useStyles = makeStyles(() => ({
@@ -28,7 +29,23 @@ const Day = () => {
 
     if (!fileText) return <CircularProgress color="primary" />
 
-    console.log('fileText: ', fileText)
+    const document = JSON.parse(fileText)
+
+    const getSumOfNumbers = document => {
+        if (typeof (document) === 'number') {
+            return document
+        } else if (typeof (document) === 'string') {
+            return 0
+        } else if (Array.isArray(document)) {
+            return document.map(el => getSumOfNumbers(el)).reduce(sumNumbers, 0)
+        } else {
+            if (Object.values(document).includes('red')) return 0
+            return Object.values(document).map(el => getSumOfNumbers(el)).reduce(sumNumbers, 0)
+        }
+    }
+
+    const total = getSumOfNumbers(document)
+    console.log('total: ', total)
 
     return <div>
         <Header />
