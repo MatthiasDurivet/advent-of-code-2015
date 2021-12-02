@@ -25,10 +25,35 @@ const permutations = arr => {
     return result
 }
 
+const combinations = arr => {
+    const recursive = innerArr => {
+        const result = []
+
+        if (innerArr.length === 0) return []
+        if (innerArr.length === 1) return []
+        if (innerArr.length === 2) return []
+
+
+        for (let i = 0; i < innerArr.length; i++) {
+            const remainingArray = [...innerArr.slice(0, i), ...innerArr.slice(i + 1)]
+            const remainingCombinations = recursive(remainingArray)
+
+            result.push(remainingArray)
+            remainingCombinations.forEach(combination => result.push(combination))
+        }
+
+
+        return result
+    }
+
+    return [arr, ...arr.map(el => [el]), ...recursive(arr)]
+}
+
 export {
     sortNumbersAscending,
     sortNumbersDescending,
     sumNumbers,
     logAndReturn,
     permutations,
+    combinations,
 }
