@@ -1,11 +1,11 @@
 import { makeStyles } from "@mui/styles"
+import { CircularProgress } from "@mui/material"
 
 import { useLocalInputFile } from "../../Atoms/LocalInputFile"
 import { Background, Header } from "../../Molecules"
 import { deepSaffron, white } from "../../../utils/CustomTheme"
-import { CircularProgress } from "@mui/material"
 
-import { combinations, sumNumbers } from '../../../utils/helperFunctions'
+import { powerset, sortNumbersAscending, sumNumbers, groupBy } from '../../../utils/helperFunctions'
 
 const useStyles = makeStyles(() => ({
     dayContainer: {
@@ -32,13 +32,21 @@ const Day = () => {
     const containers = fileText.split('\n')
         .map(str => parseInt(str))
 
-    const options = combinations(containers)
+    const options = powerset(containers)
         .filter(option => {
-            return option.reduce(sumNumbers, 0) === 25
+            return option.reduce(sumNumbers, 0) === 150
         })
 
     console.log('options: ', options)
     console.log('options.length: ', options.length)
+
+    const partTwo = options
+        .map(arr => arr.length)
+        .sort(sortNumbersAscending)
+        .reduce(groupBy, {})
+
+    console.log('partTwo: ', partTwo)
+
 
     return <div>
         <Header />

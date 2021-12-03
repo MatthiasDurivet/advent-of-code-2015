@@ -16,7 +16,7 @@ import Day14 from './Day14'
 import Day15 from './Day15'
 import Day16 from './Day16'
 import Day17 from './Day17'
-// import Day18 from './Day18'
+import Day18 from './Day18'
 // import Day19 from './Day19'
 // import Day20 from './Day20'
 // import Day21 from './Day21'
@@ -43,7 +43,7 @@ const Days = [
     Day15,
     Day16,
     Day17,
-    // Day18,
+    Day18,
     // Day19,
     // Day20,
     // Day21,

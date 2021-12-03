@@ -1,3 +1,5 @@
+import { Combination, Permutation, PowerSet } from 'js-combinatorics'
+
 const sortNumbersAscending = (a, b) => a - b
 const sortNumbersDescending = (a, b) => b - a
 const sumNumbers = (a, b) => a + b
@@ -5,48 +7,24 @@ const logAndReturn = value => {
     console.log('value: ', value)
     return value
 }
-const permutations = arr => {
-    const result = []
+const range = r => [...Array(r).keys()]
 
-    if (arr.length === 0) return []
-    if (arr.length === 1) return [arr]
-
-    for (let i = 0; i < arr.length; i++) {
-        const constantElement = arr[i]
-        const remainingArray = [...arr.slice(0, i), ...arr.slice(i + 1)]
-        const remainingPermutations = permutations(remainingArray)
-
-        for (let j = 0; j < remainingPermutations.length; j++) {
-            const onePermutation = [constantElement, ...remainingPermutations[j]]
-            result.push(onePermutation)
-        }
-    }
-
-    return result
+const permutations = (iterable, optionalElements) => {
+    return [...new Permutation(iterable, optionalElements)]
 }
 
-const combinations = arr => {
-    const recursive = innerArr => {
-        const result = []
+const combinations = (iterable, optionalElements) => {
+    return [...new Combination(iterable, optionalElements)]
+}
 
-        if (innerArr.length === 0) return []
-        if (innerArr.length === 1) return []
-        if (innerArr.length === 2) return []
+const powerset = iterable => {
+    return [...new PowerSet(iterable)]
+}
 
-
-        for (let i = 0; i < innerArr.length; i++) {
-            const remainingArray = [...innerArr.slice(0, i), ...innerArr.slice(i + 1)]
-            const remainingCombinations = recursive(remainingArray)
-
-            result.push(remainingArray)
-            remainingCombinations.forEach(combination => result.push(combination))
-        }
-
-
-        return result
-    }
-
-    return [arr, ...arr.map(el => [el]), ...recursive(arr)]
+// use with reduce {}
+const groupBy = (total, value) => {
+    if (total[value]) return { ...total, [value]: total[value] + 1 }
+    else return { ...total, [value]: 1 }
 }
 
 export {
@@ -54,6 +32,9 @@ export {
     sortNumbersDescending,
     sumNumbers,
     logAndReturn,
+    range,
     permutations,
     combinations,
+    powerset,
+    groupBy,
 }

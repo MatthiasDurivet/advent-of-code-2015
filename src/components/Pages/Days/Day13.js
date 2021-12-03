@@ -1,10 +1,11 @@
 import { makeStyles } from "@mui/styles"
+import { Permutation } from 'js-combinatorics'
 
 import { useLocalInputFile } from "../../Atoms/LocalInputFile"
 import { Background, Header } from "../../Molecules"
 import { deepSaffron, white } from "../../../utils/CustomTheme"
 import { CircularProgress } from "@mui/material"
-import { permutations, sortNumbersAscending } from "../../../utils/helperFunctions"
+import { sortNumbersAscending } from "../../../utils/helperFunctions"
 
 
 const useStyles = makeStyles(() => ({
@@ -66,13 +67,13 @@ const Day = () => {
     // const score = getSeatingScore(Object.keys(happinessLookupTable))
     // console.log('score: ', score)
 
-    const seatingScores = permutations(Object.keys(happinessLookupTable))
+    const seatingScores = Permutation(Object.keys(happinessLookupTable))
         .map(seating => getSeatingScore(seating))
         .sort(sortNumbersAscending)
 
     console.log('seatingScores: ', seatingScores)
 
-    const secondHalf = permutations([...Object.keys(happinessLookupTable), "me"])
+    const secondHalf = Permutation([...Object.keys(happinessLookupTable), "me"])
         .map(seating => getSeatingScore(seating))
         .sort(sortNumbersAscending)
 
